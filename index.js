@@ -1,7 +1,8 @@
 const Koa = require('koa');
-// config & logger
+// config & logger & schedule
 const config = require('./config');
 const logger = require('./utils/logger');
+require('./utils/cron');
 // middleware
 const memoryCache = require('./middleware/cache');
 const onError = require('./middleware/onerror');
