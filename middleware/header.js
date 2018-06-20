@@ -8,5 +8,6 @@ module.exports = async (ctx, next) => {
         'Access-Control-Allow-Methods': 'POST, GET',
     };
     ctx.set(headers);
+    ctx.response.type = 'json';
     await next();
 };

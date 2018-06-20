@@ -7,6 +7,7 @@ const memoryCache = require('./middleware/cache');
 const onError = require('./middleware/onerror');
 const header = require('./middleware/header');
 const debug = require('./middleware/debug');
+const bodyParser = require('koa-bodyparser');
 // router
 const router = require('./router');
 
@@ -21,6 +22,9 @@ app.proxy = true;
 
 // favicon
 // app.use(favicon(__dirname + '/favicon.png'));
+
+// handle post data to ctx.request.body
+app.use(bodyParser());
 
 // global error handing
 app.use(onError);

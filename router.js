@@ -3,9 +3,10 @@ const router = new Router();
 
 
 router.get('/', async (ctx) => {
-    ctx.body = '<html>hello world</html>';
+    ctx.body = {"data":"hello world"};
 });
 
+router.post('/node', require('./routes/nodejs'));
 // router.get('/debug', async (ctx) => {
 //
 //     const time = (+new Date() - startTime) / 1000;
