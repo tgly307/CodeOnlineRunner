@@ -55,3 +55,4 @@ app.use(
 app.use(router.routes()).use(router.allowedMethods());
 
 app.listen(config.port, parseInt(config.listenInaddrAny) ? null : '127.0.0.1');
+logger.info('Listening Port ' + config.port);
