@@ -1,8 +1,8 @@
-const { execSync } = require('child_process');
+const { execSync } = require("child_process");
 const fs = require('fs');
 
 module.exports = async (ctx) => {
-    data = ctx.request.body.data;
+    const data = ctx.request.body.data;
     // save code
     try {
         fs.writeFileSync('test.js', data);

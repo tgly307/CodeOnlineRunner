@@ -45,7 +45,7 @@ app.use(debug);
 // 2 cache
 app.use(
     memoryCache({
-        app: app,
+        app,
         expire: config.cacheExpire,
         ignoreQuery: true,
     })
