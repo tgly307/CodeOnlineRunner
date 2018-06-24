@@ -1,4 +1,4 @@
-const { execSync } = require("child_process");
+const { execSync } = require('child_process');
 const fs = require('fs');
 
 module.exports = async (ctx) => {
