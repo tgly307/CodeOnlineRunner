@@ -1,4 +1,5 @@
 const Koa = require('koa');
+const serve = require("koa-static");
 // config & logger & schedule
 const config = require('./config');
 const logger = require('./utils/logger');
@@ -21,6 +22,7 @@ logger.info('server run!');
 const app = new Koa();
 app.proxy = true;
 
+app.use(serve(__dirname+ "/static",{ extensions: ['html']}));
 // favicon
 // app.use(favicon(__dirname + '/favicon.png'));
 

@@ -1,12 +1,13 @@
 const Router = require('koa-router');
 const router = new Router();
 
-
 router.get('/', async (ctx) => {
-    ctx.body = {"data":"hello world"};
+    ctx.response.type = 'html';
+    ctx.body = router.get('/static/index.html');
 });
 
-router.post('/node', require('./routes/nodejs'));
+router.post('/api/node', require('./routes/nodejs'));
+router.post('/api/python', require('./routes/python'));
 // router.get('/debug', async (ctx) => {
 //
 //     const time = (+new Date() - startTime) / 1000;
