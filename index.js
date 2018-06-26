@@ -28,9 +28,8 @@ app.use(serve({
     dir: path.join(__dirname, 'public'),
     // extraHeaders: [ { 'X-Something-Whatever': 'foo, bar' } ],
     maxAge: 60 * 60 * 24 * 365
-}))
+}));
 
-console.log(path.join(__dirname,'public'));
 // favicon
 // app.use(favicon(__dirname + '/favicon.png'));
 
