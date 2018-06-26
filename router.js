@@ -1,11 +1,6 @@
 const Router = require('koa-router');
 const router = new Router();
 
-router.get('/', async (ctx) => {
-    ctx.response.type = 'html';
-    ctx.body = router.get('/static/index.html');
-});
-
 router.post('/api/node', require('./routes/nodejs'));
 router.post('/api/python', require('./routes/python'));
 // router.get('/debug', async (ctx) => {

@@ -1,5 +1,7 @@
 const Koa = require('koa');
-const serve = require("koa-static");
+const path = require('path');
+const serve = require('koa-simple-static');
+
 // config & logger & schedule
 const config = require('./config');
 const logger = require('./utils/logger');
@@ -22,7 +24,13 @@ logger.info('server run!');
 const app = new Koa();
 app.proxy = true;
 
-app.use(serve(__dirname+ "/static",{ extensions: ['html']}));
+app.use(serve({
+    dir: path.join(__dirname, 'public'),
+    // extraHeaders: [ { 'X-Something-Whatever': 'foo, bar' } ],
+    maxAge: 60 * 60 * 24 * 365
+}))
+
+console.log(path.join(__dirname,'public'));
 // favicon
 // app.use(favicon(__dirname + '/favicon.png'));
 
