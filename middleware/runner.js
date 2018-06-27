@@ -7,7 +7,7 @@ module.exports = async (ctx, next) => {
             const result = execSync(ctx.state.command).toString();
             ctx.body = {data: result};
         } catch (e) {
-            ctx.body = e.stderr.toString();
+            ctx.body = {data: e.stderr.toString()};
         }
 
     }
