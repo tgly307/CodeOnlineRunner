@@ -69,7 +69,7 @@ app.use(header);
 app.use(handlePostData);
 
 // 3 timeout
-app.use(timeout(2000));
+app.use(timeout(5000));
 
 // 5 runner
 app.use(runner);
