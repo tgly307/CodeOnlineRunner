@@ -4,5 +4,5 @@ module.exports = async (ctx) => {
         '-v $PWD:/usr/src/myapp  ' +
         '-w /usr/src/myapp node:alpine timeout 5 node ' +
         ctx.state.codeFile +
-        '2>&1';
+        ' 2>&1';
 };
