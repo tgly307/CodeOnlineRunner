@@ -11,6 +11,7 @@ const memoryCache = require('./middleware/cache');
 const onError = require('./middleware/onerror');
 const header = require('./middleware/header');
 const debug = require('./middleware/debug');
+const timeout = require('./middleware/timeout')
 const bodyParser = require('koa-bodyparser');
 // router
 const router = require('./router');
@@ -42,7 +43,8 @@ app.use(onError);
 // 1 set header
 app.use(header);
 
-// 3 debug
+// 4 debug
+// todo
 app.context.debug = {
     hitCache: 0,
     request: 0,
@@ -52,6 +54,7 @@ app.context.debug = {
 app.use(debug);
 
 // 2 cache
+// todo
 app.use(
     memoryCache({
         app,
@@ -59,6 +62,9 @@ app.use(
         ignoreQuery: true,
     })
 );
+
+// 3 timeout
+app.use(timeout(2000));
 
 // router
 app.use(router.routes()).use(router.allowedMethods());
