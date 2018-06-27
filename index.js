@@ -11,7 +11,9 @@ const memoryCache = require('./middleware/cache');
 const onError = require('./middleware/onerror');
 const header = require('./middleware/header');
 const debug = require('./middleware/debug');
-const timeout = require('./middleware/timeout')
+const timeout = require('./middleware/timeout');
+const handlePostData = require('./middleware/handlepostdata');
+const runner = require('./middleware/runner');
 const bodyParser = require('koa-bodyparser');
 // router
 const router = require('./router');
@@ -43,30 +45,36 @@ app.use(onError);
 // 1 set header
 app.use(header);
 
-// 4 debug
-// todo
-app.context.debug = {
-    hitCache: 0,
-    request: 0,
-    routes: [],
-    ips: [],
-};
-app.use(debug);
+// 5 debug
+// todo ban same IP many requests
+// app.context.debug = {
+//     hitCache: 0,
+//     request: 0,
+//     routes: [],
+//     ips: [],
+// };
+// app.use(debug);
 
 // 2 cache
 // todo
-app.use(
-    memoryCache({
-        app,
-        expire: config.cacheExpire,
-        ignoreQuery: true,
-    })
-);
+// app.use(
+//     memoryCache({
+//         app,
+//         expire: config.cacheExpire,
+//         ignoreQuery: true,
+//     })
+// );
+
+// 3 save code to file & delete the file
+app.use(handlePostData);
 
 // 3 timeout
 app.use(timeout(2000));
 
-// router
+// 5 runner
+app.use(runner);
+
+// 4 router
 app.use(router.routes()).use(router.allowedMethods());
 
 app.listen(config.port, parseInt(config.listenInaddrAny) ? null : '127.0.0.1');

@@ -1,5 +1,5 @@
 const logger = require('../utils/logger');
-
+const fs = require('fs');
 module.exports = async (ctx, next) => {
     try {
         await next();
@@ -10,5 +10,9 @@ module.exports = async (ctx, next) => {
         });
         ctx.body = 'The server throw an error: ' + err;
         ctx.status = 500;
+        fs.unlink(ctx.state.codeFile, () => {});
+        if(ctx.state.inputFile){
+            fs.unlink(ctx.state.inputFile, () => {});
+        }
     }
 };
