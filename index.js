@@ -5,6 +5,7 @@ const serve = require('koa-simple-static');
 // config & logger & schedule
 const config = require('./config');
 const logger = require('./utils/logger');
+const favicon = require('koa-favicon');
 require('./utils/cron');
 // middleware
 const memoryCache = require('./middleware/cache');
