@@ -11,7 +11,7 @@ module.exports = async (ctx, next) => {
             // save code file
             fs.writeFileSync(ctx.state.codeFile, ctx.request.body.code);
             //save input file if have one
-            ctx.request.body.input && fs.writeFileSync(ctx.state.inputFile, ctx.request.body.input)
+            ctx.request.body.input && fs.writeFileSync(ctx.state.inputFile, ctx.request.body.input);
 
             await next();
 

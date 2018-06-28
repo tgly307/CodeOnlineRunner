@@ -6,7 +6,9 @@ module.exports.uuid = function(len, radix) {
 
     if (len) {
         // Compact form
-        for (i = 0; i < len; i++) uuid[i] = chars[0 | Math.random()*radix];
+        for (i = 0; i < len; i++) {
+            uuid[i] = chars[0 | Math.random()*radix];
+        }
     } else {
         // rfc4122, version 4 form
         let r;
