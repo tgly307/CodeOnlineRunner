@@ -34,7 +34,7 @@ app.use(serve({
 }));
 
 // favicon
-// app.use(favicon(__dirname + '/favicon.png'));
+app.use(favicon(__dirname + '/favicon.png'));
 
 // handle post data to ctx.request.body
 app.use(bodyParser());
