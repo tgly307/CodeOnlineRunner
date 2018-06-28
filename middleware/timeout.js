@@ -13,4 +13,4 @@ module.exports = (delay, options={}) => async (ctx, next) => {
     });
     await Promise.race([timeout, next()]);
     clearTimeout(timer);
-}
+};

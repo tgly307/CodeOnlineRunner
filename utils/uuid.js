@@ -28,22 +28,3 @@ module.exports.uuid = function(len, radix) {
     return uuid.join('');
 };
 
-module.exports.delay = async function(time) {
-    return new Promise(function(resolve, reject) {
-        setTimeout(function(){
-            resolve();
-        }, time);
-    });
-};
-
-module.exports.runCode = function(command) {
-    return new Promise(function (resolve, reject){
-        exec(command, (error, stdout, stderr) =>{
-            let body = {data: stdout && stdout.toString()
-                || stderr && stderr.toString()
-                || error &&error.toString()};
-            console.log(body);
-            resolve(body)
-        });
-    });
-};

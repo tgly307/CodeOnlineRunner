@@ -11,8 +11,7 @@ module.exports = async (ctx, next) => {
         ctx.body = 'The server throw an error: ' + err;
         ctx.status = 500;
         fs.unlink(ctx.state.codeFile, () => {});
-        if(ctx.state.inputFile){
-            fs.unlink(ctx.state.inputFile, () => {});
-        }
+        ctx.state.inputFile && fs.unlink(ctx.state.inputFile, () => {});
+
     }
 };
