@@ -4,4 +4,5 @@ module.exports = async (ctx) => {
                         '-w /usr/src/myapp python:alpine timeout python ' +
                         ctx.state.codeFile;
                         // + ' 2>&1';
+    console.log(ctx.state.command)
 };

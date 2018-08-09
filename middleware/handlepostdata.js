@@ -16,8 +16,8 @@ module.exports = async (ctx, next) => {
             await next();
 
             //delete code file & input file if have one
-            fs.unlink(ctx.state.codeFile, () => {});
-            ctx.request.body.input && fs.unlink(ctx.state.inputFile, () => {});
+            // fs.unlink(ctx.state.codeFile, () => {});
+            // ctx.request.body.input && fs.unlink(ctx.state.inputFile, () => {});
         } else {
             ctx.body = {data: 'The code is empty!'};
         }
