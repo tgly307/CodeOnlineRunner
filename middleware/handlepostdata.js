@@ -8,7 +8,7 @@ module.exports = async (ctx, next) => {
     ctx.state.codeFilename = utils.uuid(20);
     ctx.state.inputFilename = utils.uuid(25);
     // get file path
-    ctx.state.filePath = path.join(process.cwd(), 'postCode')
+    ctx.state.filePath = path.join(process.cwd(), 'postCode');
     // generate filename with path
     ctx.state.codeFile = path.join(ctx.state.filePath, ctx.state.codeFilename);
     ctx.state.inputFile = path.join(ctx.state.filePath, 'postCode', ctx.state.inputFilename);
