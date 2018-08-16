@@ -1,4 +1,3 @@
-const { exec } = require('child_process');
 module.exports.uuid = function(len, radix) {
     const chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
     let uuid = [], i;
