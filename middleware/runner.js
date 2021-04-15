@@ -7,7 +7,7 @@ module.exports = async (ctx, next) => {
         ctx.state.filePath +
         ':/usr/src/myapp -w /usr/src/myapp ' +
         ctx.state.commandOption.dockerImage +
-        ' timeout ' +
+        ' timeout 5 ' +
         ctx.state.commandOption.commandline;
     // script language
     if(!ctx.request.body.input) {
